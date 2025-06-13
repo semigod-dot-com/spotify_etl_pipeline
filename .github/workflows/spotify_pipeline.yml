@@ -30,4 +30,4 @@ jobs:
       run: python extraction_scripts/spotify_ingestion.py
 
     - name: Run dbt Models
-      run: dbt build --profiles-dir ./semi
+      run: dbt build --profiles-dir .dbt
