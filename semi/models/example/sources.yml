@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: public
+    database: mydb
+    schema: public
+    tables:
+      - name: recent_tracks
+        description: "Tracks that have been played recently on my spotify account"

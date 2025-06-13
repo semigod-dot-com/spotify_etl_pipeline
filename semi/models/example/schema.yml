@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: recent_tracks
+    description: "Raw data ingested from public schema"
+    columns:
+      - name: played_at
+        description: "Timestamp when the track was played"
+      - name: track_name
+        description: "Name of the track"
+      - name: artist_name
+        description: "Name of the artist"
+      - name: album
+        description: "Album of the track"
+      - name: duration_ms
+        description: "Duration of the track in milliseconds"
+      - name: release_date
+        description: "Release date of the track"
+      - name: album_name
+        description: "Name of the album containing the track"
+      - name: track_id
+        description: "Unique identifier for the track"
+      - name: track_uri
+        description: "URI for the track in Spotify"
+
+  - name: stg_recent_tracks
+    description: "Tracks that have been played recently on my spotify account"
+    columns:
+      - name: played_at
+        description: "Timestamp when the track was played"
+        tests:
+          - not_null
+      - name: track_name
+        description: "Name of the track"
+      - name: artist_name
+        description: "Name of the artist"
+      - name: album
+        description: "Album of the track"
+      - name: duration_ms
+        description: "Duration of the track in milliseconds"
+      - name: release_date
+        description: "Release date of the track"
+      - name: album_name
+        description: "Name of the album containing the track"
+      - name: track_id
+        description: "Unique identifier for the track"
+      - name: track_uri
+        description: "URI for the track in Spotify"
+        tests:
+          - not_null
+
+snapshots:
+  - name: snap_stg_recent_tracks  
+    description: "Snapshot of recent tracks"
+    columns:
+      - name: played_at
+        tests:
+          - not_null
+      - name: track_name
+        tests:
+          - not_null  
+      - name: artist_name
+        description: "Name of the artist"
+      - name: album
+        description: "Album of the track"
+      - name: duration_ms
+        description: "Duration of the track in milliseconds"
+      - name: release_date
+        description: "Release date of the track"
+      - name: album_name
+        description: "Name of the album containing the track" 
+      - name: track_id
+        description: "Unique identifier for the track"
+      - name: track_uri
+        description: "URI for the track in Spotify"

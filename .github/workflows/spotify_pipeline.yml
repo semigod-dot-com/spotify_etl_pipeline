@@ -1,0 +1,33 @@
+name: Spotify Daily Pipeline
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Every day at 9 AM UTC (10 AM Nigeria)
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Extraction Script
+      run: python extraction_scripts/spotify_extraction.py
+
+    - name: Run Ingestion Script
+      run: python extraction_scripts/spotify_ingestion.py
+
+    - name: Run dbt Models
+      run: dbt build --profiles-dir ./semi

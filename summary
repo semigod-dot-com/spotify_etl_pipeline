@@ -1,0 +1,73 @@
+ Spotify Listening History Data Pipeline
+Overview:
+Built an end-to-end data pipeline to extract, ingest, transform, and model personal Spotify listening history using Python, PostgreSQL, and dbt, automated with a scheduled job on Windows.
+
+🧱 Pipeline Architecture:
+Data Extraction (Python + Jupyter Notebook):
+
+Used Spotify Web API to collect recent tracks data.
+
+Extracted track name, artist, timestamps, and metadata.
+
+Script written in .ipynb for iterative development and visualization.
+
+Data Ingestion (PostgreSQL):
+
+Ingested the raw data into a PostgreSQL database.
+
+Created and maintained a raw table to persist historical listening records.
+
+Data Modeling & Transformation (dbt):
+
+Created staging and analytics models using SQL in dbt.
+
+Implemented a snapshot to track changes in listening behavior over time.
+
+Used schema.yml for documentation and tests (e.g. not null, uniqueness).
+
+Automation (Windows Task Scheduler):
+
+Built a .bat script to:
+
+Activate the virtual environment
+
+Execute .ipynb notebooks using Papermill
+
+Run dbt models (dbt build)
+
+Scheduled to run daily via Task Scheduler, automating the entire pipeline.
+
+📌 Tools & Technologies Used:
+Languages: Python, SQL
+
+APIs: Spotify Web API
+
+Database: PostgreSQL
+
+Transformation: dbt (v1.9+)
+
+Orchestration: Windows Task Scheduler, .bat scripting
+
+Environment Management: venv, Jupyter Notebook
+
+Notebook Execution: Papermill
+
+🧠 Key Concepts Applied:
+Modular pipeline design (ELT)
+
+Snapshot versioning in dbt
+
+Virtual environment activation in scripts
+
+Automated notebook execution
+
+Daily scheduling on Windows OS
+
+Data quality testing with dbt
+
+✅ Outcome:
+Built a reliable, automated data engineering workflow.
+
+Tracked and transformed listening history for analytics-ready insights.
+
+Developed hands-on experience with dbt, PostgreSQL, and orchestration on a real-world dataset

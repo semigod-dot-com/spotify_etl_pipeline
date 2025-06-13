@@ -1,0 +1,8 @@
+requests==2.32.3
+pandas==2.2.2
+spotipy==2.25.1
+sqlalchemy==2.0.34
+psycopg2-binary==2.9.10
+dbt-core==1.9.4
+dbt-postgres==1.9.0
+papermill==2.4.0
