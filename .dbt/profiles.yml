@@ -1,0 +1,13 @@
+semi:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: db.mzpfpxpduwrjpguznejc.supabase.co
+      user: postgres
+      password: admin123
+      port: 5432
+      dbname: postgres
+      schema: spotify_dbt
+      threads: 2
+      sslmode: require
